@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\lleon\\OneDrive - sga.pucminas.br\\Github\\Jogo-da-velha\\Jogo-da-velha.csproj": {}
+    "c:\\Users\\lleon\\OneDrive - sga.pucminas.br\\Github\\Jogo-da-velha\\Jogo-da-velha.csproj": {}
   },
   "projects": {
-    "C:\\Users\\lleon\\OneDrive - sga.pucminas.br\\Github\\Jogo-da-velha\\Jogo-da-velha.csproj": {
+    "c:\\Users\\lleon\\OneDrive - sga.pucminas.br\\Github\\Jogo-da-velha\\Jogo-da-velha.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\lleon\\OneDrive - sga.pucminas.br\\Github\\Jogo-da-velha\\Jogo-da-velha.csproj",
+        "projectUniqueName": "c:\\Users\\lleon\\OneDrive - sga.pucminas.br\\Github\\Jogo-da-velha\\Jogo-da-velha.csproj",
         "projectName": "Jogo-da-velha",
-        "projectPath": "C:\\Users\\lleon\\OneDrive - sga.pucminas.br\\Github\\Jogo-da-velha\\Jogo-da-velha.csproj",
+        "projectPath": "c:\\Users\\lleon\\OneDrive - sga.pucminas.br\\Github\\Jogo-da-velha\\Jogo-da-velha.csproj",
         "packagesPath": "C:\\Users\\lleon\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\lleon\\OneDrive - sga.pucminas.br\\Github\\Jogo-da-velha\\obj\\",
+        "outputPath": "c:\\Users\\lleon\\OneDrive - sga.pucminas.br\\Github\\Jogo-da-velha\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\lleon\\AppData\\Roaming\\NuGet\\NuGet.Config"
