@@ -1,0 +1,15 @@
+C:\Users\lleon\OneDrive - sga.pucminas.br\Github\Jogo-da-velha\bin\Debug\net7.0\Jogo-da-velha.exe
+C:\Users\lleon\OneDrive - sga.pucminas.br\Github\Jogo-da-velha\bin\Debug\net7.0\Jogo-da-velha.deps.json
+C:\Users\lleon\OneDrive - sga.pucminas.br\Github\Jogo-da-velha\bin\Debug\net7.0\Jogo-da-velha.runtimeconfig.json
+C:\Users\lleon\OneDrive - sga.pucminas.br\Github\Jogo-da-velha\bin\Debug\net7.0\Jogo-da-velha.dll
+C:\Users\lleon\OneDrive - sga.pucminas.br\Github\Jogo-da-velha\bin\Debug\net7.0\Jogo-da-velha.pdb
+C:\Users\lleon\OneDrive - sga.pucminas.br\Github\Jogo-da-velha\obj\Debug\net7.0\Jogo-da-velha.csproj.AssemblyReference.cache
+C:\Users\lleon\OneDrive - sga.pucminas.br\Github\Jogo-da-velha\obj\Debug\net7.0\Jogo-da-velha.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\lleon\OneDrive - sga.pucminas.br\Github\Jogo-da-velha\obj\Debug\net7.0\Jogo-da-velha.AssemblyInfoInputs.cache
+C:\Users\lleon\OneDrive - sga.pucminas.br\Github\Jogo-da-velha\obj\Debug\net7.0\Jogo-da-velha.AssemblyInfo.cs
+C:\Users\lleon\OneDrive - sga.pucminas.br\Github\Jogo-da-velha\obj\Debug\net7.0\Jogo-da-velha.csproj.CoreCompileInputs.cache
+C:\Users\lleon\OneDrive - sga.pucminas.br\Github\Jogo-da-velha\obj\Debug\net7.0\Jogo-da-velha.dll
+C:\Users\lleon\OneDrive - sga.pucminas.br\Github\Jogo-da-velha\obj\Debug\net7.0\refint\Jogo-da-velha.dll
+C:\Users\lleon\OneDrive - sga.pucminas.br\Github\Jogo-da-velha\obj\Debug\net7.0\Jogo-da-velha.pdb
+C:\Users\lleon\OneDrive - sga.pucminas.br\Github\Jogo-da-velha\obj\Debug\net7.0\Jogo-da-velha.genruntimeconfig.cache
+C:\Users\lleon\OneDrive - sga.pucminas.br\Github\Jogo-da-velha\obj\Debug\net7.0\ref\Jogo-da-velha.dll
