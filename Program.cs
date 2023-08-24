@@ -21,8 +21,10 @@ class Program
             //Dar o jogador da maquina
             maquina = Maquina(jogador);
 
+            jogador = Char.ToUpper(jogador);
+
             //Criar o tabuleito
-            Tabuleiro(tabuleiro);
+            ImprimeTabuleiro(tabuleiro);
 
             //Console.WriteLine($"A maquina vai ficar com o {maquina} e o jogador fica com o {jogador}");
 
@@ -34,7 +36,7 @@ class Program
         {
 
             Console.WriteLine();
-            Console.WriteLine("Caractere Errado!!!");
+            Console.WriteLine("Caractere inválida!!!");
             Console.WriteLine("Digite novamente!");
             Console.WriteLine();
 
@@ -42,23 +44,16 @@ class Program
         }
     }
 
-    static void Tabuleiro(char[,] tabuleiro)
+    static void ImprimeTabuleiro(char[,] tabuleiro)
     {
-        int numero = 0;
-
         //Criação do jogo
         Console.WriteLine();
-        Console.WriteLine();
+        Console.WriteLine("");
+        Console.WriteLine("Ínicio do Jogo");
+        Console.WriteLine("");
 
-        if (numero < 1)
-        {
-            Console.WriteLine("");
-            Console.WriteLine("Ínicio do Jogo");
 
-            //numero++;
-        }
-
-        int num = 0;
+        char num = '1';
 
         for (int x = 0; x < 3; x++)
         {
@@ -68,6 +63,7 @@ class Program
                 if (y < 3)
                 {
                     Console.Write($" {num} ");
+                    tabuleiro[x, y] = num;
                     num++;
                     n++;
 
@@ -75,8 +71,55 @@ class Program
                     {
                         Console.Write("│");
                     }
-                }
 
+
+                }
+            }
+            if (x < 2)
+            {
+                if (n == 3)
+                {
+
+                    Console.WriteLine("");
+                    Console.WriteLine("───┼───┼───");
+                }
+            }
+            n = 0;
+
+        }
+        Console.WriteLine("");
+
+
+    }
+
+    static char[,] Tabuleiro(char[,] tabuleiro, int numero)
+    {
+        //Imprime do jogo
+        Console.WriteLine("");
+
+        char num = '1';
+
+        if (numero != 0)
+        {
+            for (int x = 0; x < 3; x++)
+            {
+                int n = 0;
+                for (int y = 0; y < 3; y++)
+                {
+                    if (y < 3)
+                    {
+                        Console.Write($" {tabuleiro[x, y]} ");
+                        num++;
+                        n++;
+
+                        if (y < 2)
+                        {
+                            Console.Write("│");
+                        }
+
+
+                    }
+                }
                 if (x < 2)
                 {
                     if (n == 3)
@@ -86,12 +129,14 @@ class Program
                         Console.WriteLine("───┼───┼───");
                     }
                 }
-            }
-            n = 0;
+                n = 0;
 
+            }
         }
         Console.WriteLine("");
-        
+
+
+        return tabuleiro;
 
     }
 
@@ -102,17 +147,14 @@ class Program
         if (jogador == 'x' || jogador == 'X')
         {
             maquina = 'O';
-            jogador = 'X';
         }
         else
         {
-            jogador = 'X';
-            maquina = 'O';
+            maquina = 'X';
         }
 
         return maquina;
     }
-
 
     static void Inicio(char jogador, char maquina, char[,] tabuleiro)
     {
@@ -122,19 +164,37 @@ class Program
         {
             if (casas < 10)
             {
-                //Console.WriteLine("");
                 Console.WriteLine("");
                 Console.WriteLine("Qual casa você que jogar?");
                 int casa = int.Parse(Console.ReadLine());
 
-                casas++;
+                if (casa > 0 && casa < 10)
+                {
 
-                InicioDoJogo(jogador, maquina, casa, tabuleiro);
+                    casas++;
+
+                    InicioDoJogo(jogador, maquina, casa, tabuleiro);
+
+                    Console.WriteLine("ola");
+
+                    JogadaDaMaquina(maquina, jogador, tabuleiro);
+
+                }
+                else
+                {
+                    Console.WriteLine();
+                    Console.WriteLine("Casa inválida!!!");
+                    Console.WriteLine("Digite novamente!");
+                    Console.WriteLine();
+                }
             }
         } while (casas < 10);
 
         if (casas >= 9)
         {
+            Console.WriteLine("");
+            Console.WriteLine("Fim do jogo!!!");
+            Console.WriteLine("Empate!");
             JogarNovamente();
         }
 
@@ -147,6 +207,7 @@ class Program
         Console.WriteLine("Você quer jogar de novo? (S/N)");
         char resposta = char.Parse(Console.ReadLine());
 
+        //Responde se que joga de novo ou não
         if (resposta == 's' || resposta == 'S')
         {
             Main();
@@ -158,7 +219,7 @@ class Program
         else
         {
             Console.WriteLine();
-            Console.WriteLine("Caractere Errado!!!");
+            Console.WriteLine("Caractere inválida!!!");
             Console.WriteLine("Digite novamente!");
             Console.WriteLine();
 
@@ -169,9 +230,57 @@ class Program
     static void InicioDoJogo(char jogador, char maquina, int casa, char[,] tabuleiro)
     {
         int numero = 0;
+        char[,] tabuleiroComCasas = new char[3, 3];
+        tabuleiroComCasas = Tabuleiro(tabuleiro, numero);
+        int num = 1;
 
+        //Preencher a casa
+        for (int x = 0; x < tabuleiro.GetLength(0); x++)
+        {
+            for (int i = 0; i < tabuleiro.GetLength(1); i++)
+            {
+
+                if (casa == num)
+                {
+                    tabuleiroComCasas[x, i] = jogador;
+                }
+                num++;
+            }
+        }
+
+        //Imprime com a casa preenchida
         numero++;
-
-        Tabuleiro(tabuleiro);
+        Tabuleiro(tabuleiroComCasas, numero);
     }
+    static void JogadaDaMaquina(char maquina, char jogador, char[,] tabuleiro)
+    {
+        Random random = new Random();
+        int num = random.Next(1, 10);
+        int cont = 0;
+        int numero = 0;
+
+        //faz a jogada da maquina
+        for (int x = 0; x < tabuleiro.GetLength(0); x++)
+        {
+            for (int i = 0; i < tabuleiro.GetLength(1); i++)
+            {
+                if (tabuleiro[x, i] != jogador && tabuleiro[x, i] != maquina)
+                {
+                    cont++;
+
+                    if (cont == num)
+                    {
+                        tabuleiro[x, i] = maquina;
+                        numero++;
+                        Tabuleiro(tabuleiro, numero);
+                        return;
+                    }
+                }
+            }
+        }
+
+        JogadaDaMaquina(maquina, jogador, tabuleiro);
+    }
+
 }
+
