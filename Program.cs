@@ -1,6 +1,7 @@
 ﻿using System;
 
 class Program
+
 {
 
     static void Main()
@@ -10,6 +11,8 @@ class Program
         char maquina;
         char[,] tabuleiro = new char[3, 3];
 
+        Console.WriteLine("");
+        Console.WriteLine("");
         Console.WriteLine("Você que jogar com X ou O? ");
         jogador = char.Parse(Console.ReadLine());
 
@@ -24,7 +27,7 @@ class Program
             //Console.WriteLine($"A maquina vai ficar com o {maquina} e o jogador fica com o {jogador}");
 
             //Ínicio do Jogo
-            Inicio(jogador, maquina);
+            Inicio(jogador, maquina, tabuleiro);
 
         }
         else
@@ -41,38 +44,55 @@ class Program
 
     static void Tabuleiro(char[,] tabuleiro)
     {
+        int numero = 0;
+
         //Criação do jogo
         Console.WriteLine();
         Console.WriteLine();
-        Console.WriteLine();
-        Console.WriteLine("Ínicio do Jogo");
-        Console.WriteLine();
 
-        int num = 1;
-
-        for (int x = 0; x < 5; x++)
+        if (numero < 1)
         {
-            if (x % 2 != 0)
+            Console.WriteLine("");
+            Console.WriteLine("Ínicio do Jogo");
+
+            //numero++;
+        }
+
+        int num = 0;
+
+        for (int x = 0; x < 3; x++)
+        {
+            int n = 0;
+            for (int y = 0; y < 3; y++)
             {
-                Console.Write("───┼───┼───");
-            }
-            else
-            {
-                for (int i = 0; i < 5; i++)
+                if (y < 3)
                 {
-                    if (i % 2 == 0)
-                    {
-                        Console.Write($" {num} ");
-                        num++;
-                    }
-                    else
+                    Console.Write($" {num} ");
+                    num++;
+                    n++;
+
+                    if (y < 2)
                     {
                         Console.Write("│");
                     }
                 }
+
+                if (x < 2)
+                {
+                    if (n == 3)
+                    {
+
+                        Console.WriteLine("");
+                        Console.WriteLine("───┼───┼───");
+                    }
+                }
             }
-            Console.WriteLine();
+            n = 0;
+
         }
+        Console.WriteLine("");
+        
+
     }
 
     static char Maquina(char jogador)
@@ -82,17 +102,19 @@ class Program
         if (jogador == 'x' || jogador == 'X')
         {
             maquina = 'O';
+            jogador = 'X';
         }
         else
         {
-            maquina = 'X';
+            jogador = 'X';
+            maquina = 'O';
         }
 
         return maquina;
     }
 
 
-    static void Inicio(char jogador, char maquina)
+    static void Inicio(char jogador, char maquina, char[,] tabuleiro)
     {
         int casas = 1;
 
@@ -100,10 +122,14 @@ class Program
         {
             if (casas < 10)
             {
+                //Console.WriteLine("");
+                Console.WriteLine("");
                 Console.WriteLine("Qual casa você que jogar?");
                 int casa = int.Parse(Console.ReadLine());
 
                 casas++;
+
+                InicioDoJogo(jogador, maquina, casa, tabuleiro);
             }
         } while (casas < 10);
 
@@ -117,6 +143,7 @@ class Program
 
     static void JogarNovamente()
     {
+        Console.WriteLine("");
         Console.WriteLine("Você quer jogar de novo? (S/N)");
         char resposta = char.Parse(Console.ReadLine());
 
@@ -139,4 +166,12 @@ class Program
         }
     }
 
+    static void InicioDoJogo(char jogador, char maquina, int casa, char[,] tabuleiro)
+    {
+        int numero = 0;
+
+        numero++;
+
+        Tabuleiro(tabuleiro);
+    }
 }
