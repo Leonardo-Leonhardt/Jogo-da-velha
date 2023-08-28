@@ -158,11 +158,11 @@ class Program
 
     static void Inicio(char jogador, char maquina, char[,] tabuleiro)
     {
-        int casas = 1;
+        int casas = 0;
 
         do
         {
-            if (casas < 10)
+            if (casas < 9)
             {
                 Console.WriteLine("");
                 Console.WriteLine("Qual casa você que jogar?");
@@ -170,15 +170,26 @@ class Program
 
                 if (casa > 0 && casa < 10)
                 {
-
                     casas++;
 
                     InicioDoJogo(jogador, maquina, casa, tabuleiro);
+                    if (casas >= 9)
+                    {
+                        Console.WriteLine("");
+                        Console.WriteLine("Fim do jogo!!!");
+                        Console.WriteLine("Empate!");
+                        JogarNovamente();
+                    }
+                    else
+                    {
 
-                    Console.WriteLine("ola");
+                        Console.WriteLine("");
+                        Console.WriteLine("");
+                        Console.WriteLine("Jogada da maquina!!");
 
-                    JogadaDaMaquina(maquina, jogador, tabuleiro);
-
+                        casas = JogadaDaMaquina(maquina, jogador, tabuleiro, casas);
+                        Console.WriteLine($"{casas}");
+                    }
                 }
                 else
                 {
@@ -189,15 +200,6 @@ class Program
                 }
             }
         } while (casas < 10);
-
-        if (casas >= 9)
-        {
-            Console.WriteLine("");
-            Console.WriteLine("Fim do jogo!!!");
-            Console.WriteLine("Empate!");
-            JogarNovamente();
-        }
-
 
     }
 
@@ -214,7 +216,7 @@ class Program
         }
         else if (resposta == 'n' || resposta == 'N')
         {
-
+            return;
         }
         else
         {
@@ -252,7 +254,7 @@ class Program
         numero++;
         Tabuleiro(tabuleiroComCasas, numero);
     }
-    static void JogadaDaMaquina(char maquina, char jogador, char[,] tabuleiro)
+    static int JogadaDaMaquina(char maquina, char jogador, char[,] tabuleiro, int casas)
     {
         Random random = new Random();
         int num = random.Next(1, 10);
@@ -273,13 +275,14 @@ class Program
                         tabuleiro[x, i] = maquina;
                         numero++;
                         Tabuleiro(tabuleiro, numero);
-                        return;
+                        casas++;
+                        return casas;
                     }
                 }
             }
         }
 
-        JogadaDaMaquina(maquina, jogador, tabuleiro);
+        return JogadaDaMaquina(maquina, jogador, tabuleiro, casas);
     }
 
 }
